@@ -1,0 +1,32 @@
+---
+
+- name: Convert pdf to txt
+  hosts: localhost
+  vars:
+    volume_path: "../"
+  tasks:
+  - name: Build docker with convert tools
+    community.docker.docker_image:
+      name: tesseract-ocr
+      build:
+        path: .
+        dockerfile: Dockerfile-tesseract-ocr
+      source: build
+  
+  - name: Start a convert container
+    community.docker.docker_container:
+      name: tesseract-ocr
+      image: tesseract-ocr
+      volumes:
+      - "{{ volume_path }}:/data"
+      command: "sleep infinity"
+
+  - name: Run a convert in container
+    community.docker.docker_container_exec:
+      container: tesseract-ocr
+      command: /bin/sh -c "for folder in $(find /data/ATLAS_HUB/ -type d -maxdepth 1); do for file in $(find $folder|grep -i jpg); do tesseract -l slk $file $file.txt; done; done"
+
+  - name: Remove a container
+    community.docker.docker_container:
+      name: tesseract-ocr
+      state: absent

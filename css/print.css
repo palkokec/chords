@@ -1,0 +1,52 @@
+﻿body{
+	background:none repeat scroll 0 0 #FFFFFF;
+	color:#333333;
+	font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+	font-size:1em;
+	margin:0;
+	padding:0;
+	text-align:left;
+}
+
+ #printDiv {
+	color:#000000;
+	background:none;
+	font-size:1em;
+	text-decoration:none;
+	text-align:left;
+	vertical-align:top;
+ }
+ 
+ #printDiv td {
+	vertical-align:top;
+	padding:5px;
+ }
+ #printDiv h1 {
+	font-size:2em;
+	font-weight:bold;
+	margin:auto;
+	color:#000000;
+ }
+ 
+ #printDiv p {
+	color:#000000;
+	font-size:1em;
+	text-decoration:none;
+	font-family: 'Times New Roman', Times, serif;
+ }
+ 
+ .chordPrint{
+	color:#000000;
+	font-size:1em;
+	text-decoration:none;
+	font-family: 'Times New Roman', Times, serif;
+	font-weight:bold;
+}
+
+.textPrint {
+	color:#000000;
+	font-size:1em;
+	text-decoration:none;
+	font-family: 'Times New Roman', Times, serif;
+}
+
